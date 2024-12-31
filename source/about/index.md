@@ -1,0 +1,26 @@
+---
+title: about
+date: 2025-01-01 05:52:17
+toc: false
+---
+## Hi there 👋
+## Contact me
+- WeChat Official Account  
+Used for publishing technical blogs related to GIS.
+![微信搜索集思地图](about/image.png)
+- Other Chinese Technology Platforms
+You can contact me by searching for the account with the username "ChatGIS" on other Chinese technology platforms.For example: Juejin, Cnblogs, CSDN, SegmentFault, and JianShu.
+<!--
+**ChatGIS/ChatGIS** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
