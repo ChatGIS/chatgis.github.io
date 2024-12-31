@@ -5,6 +5,7 @@
 menu:
   Home: /
   Archives: /archives
+  CesiumShow: /cesium-show
 # RSS link
 rss: /atom.xml
 # Path of title banner image of page top
@@ -15,7 +16,7 @@ subtitle:
 # Each name must correspond to the icon name of Fork Awesome
 # https://forkaweso.me/Fork-Awesome/icons/
 links:
-#  github: https://github.com/your_github_account
+ github: https://github.com/ChatGIS
 #  twitter: https://twitter.com/your_twitter_account
 #  telegram: https://t.me/your_telegram_account
 
@@ -53,8 +54,8 @@ widgets:
 # ===============
 # Widget behavior
 # ===============
-archive_type: 'monthly'
-show_count: false
+archive_type: 'yearly'
+show_count: true
 # How many posts display in Home page.
 recent_posts_limits: 5
 
@@ -88,3 +89,13 @@ valine:
   lang: zh-cn # i18n: zh-cn/en
   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
+
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: transliteration
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: '####'
+    style: header-anchor
