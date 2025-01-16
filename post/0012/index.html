@@ -17,15 +17,15 @@
   
   <title>Hexo-基于LandScape创建自己的博客主题 | ChatGIS Space</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1. 下载主题LandScape1git clone git@github.com:hexojs&#x2F;hexo-theme-landscape.git themes&#x2F;landscape 2. 管理主题源码删除下载主题文件夹中的.git文件夹，并将主题文件夹重命名为space。这样就可以基于在自己的git管理新主题啦。 3. 调用主题space在文件_config.yml中找到增加配置 1theme:">
+  <meta name="description" content="摘要：拥有自己的Hexo博客主题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-基于LandScape创建自己的博客主题">
 <meta property="og:url" content="https://chatgis.space/post/0012/index.html">
 <meta property="og:site_name" content="ChatGIS Space">
-<meta property="og:description" content="1. 下载主题LandScape1git clone git@github.com:hexojs&#x2F;hexo-theme-landscape.git themes&#x2F;landscape 2. 管理主题源码删除下载主题文件夹中的.git文件夹，并将主题文件夹重命名为space。这样就可以基于在自己的git管理新主题啦。 3. 调用主题space在文件_config.yml中找到增加配置 1theme:">
+<meta property="og:description" content="摘要：拥有自己的Hexo博客主题。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-29T15:42:18.000Z">
-<meta property="article:modified_time" content="2025-01-02T15:57:05.396Z">
+<meta property="article:modified_time" content="2025-01-17T07:55:29.662Z">
 <meta property="article:author" content="ChatGIS">
 <meta property="article:tag" content="SSG">
 <meta name="twitter:card" content="summary">
@@ -127,7 +127,9 @@
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98LandScape"><span class="toc-text">1. 下载主题LandScape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%A1%E7%90%86%E4%B8%BB%E9%A2%98%E6%BA%90%E7%A0%81"><span class="toc-text">2. 管理主题源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%B0%83%E7%94%A8%E4%B8%BB%E9%A2%98space"><span class="toc-text">3. 调用主题space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9Banner"><span class="toc-text">4. 修改Banner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-text">5. 增加文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%96%B0%E5%BB%BAtoc-ejs%E6%96%87%E4%BB%B6"><span class="toc-text">5.1. 新建toc.ejs文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%9C%A8post-ejs%E4%B8%AD%E8%B0%83%E7%94%A8"><span class="toc-text">5.2. 在post.ejs中调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F"><span class="toc-text">5.3. 修改样式</span></a></li></ol></li></ol>
     </div>
 
-        <h2 id="1-下载主题LandScape"><a href="#1-下载主题LandScape" class="headerlink" title="1. 下载主题LandScape"></a>1. 下载主题LandScape</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:hexojs/hexo-theme-landscape.git themes/landscape</span><br></pre></td></tr></table></figure>
+        <p>摘要：拥有自己的Hexo博客主题。</p>
+<span id="more"></span>
+<h2 id="1-下载主题LandScape"><a href="#1-下载主题LandScape" class="headerlink" title="1. 下载主题LandScape"></a>1. 下载主题LandScape</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:hexojs/hexo-theme-landscape.git themes/landscape</span><br></pre></td></tr></table></figure>
 <h2 id="2-管理主题源码"><a href="#2-管理主题源码" class="headerlink" title="2. 管理主题源码"></a>2. 管理主题源码</h2><p>删除下载主题文件夹中的<code>.git</code>文件夹，并将主题文件夹重命名为<code>space</code>。<br>这样就可以基于在自己的git管理新主题啦。</p>
 <h2 id="3-调用主题space"><a href="#3-调用主题space" class="headerlink" title="3. 调用主题space"></a>3. 调用主题space</h2><p>在文件<code>_config.yml</code>中找到增加配置</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: space</span><br></pre></td></tr></table></figure>
@@ -142,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chatgis.space/post/0012/index.html" data-id="cm5zhifl80007ewv76zvh6st1" data-title="Hexo-基于LandScape创建自己的博客主题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chatgis.space/post/0012/index.html" data-id="cm5zkslok00039ov79uc3ewau" data-title="Hexo-基于LandScape创建自己的博客主题" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
