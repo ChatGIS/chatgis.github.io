@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40P594EVM8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-40P594EVM8');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>ChatGIS Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="ChatGIS Space">
+<meta property="og:url" content="https://chatgis.space/index.html">
+<meta property="og:site_name" content="ChatGIS Space">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="ChatGIS">
+<meta property="article:tag" content="GIS, ChatGIS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ChatGIS Space" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ChatGIS Space</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The blog, static website and contact information of ChatGIS.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/gisshow">GisShow</a>
+        
+          <a class="main-nav-link" href="/huanyu">HuanYu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/ChatGIS"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chatgis.space"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-0013" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/post/0013/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-01-05T15:46:52.000Z" itemprop="datePublished">2025-01-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/post/0013/index.html">使用VitePress搭建学习文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+    <div id="toc">
+        <strong class="sidebar-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85"><span class="toc-text">1. 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-npm%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">1.1. npm初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85VitePress"><span class="toc-text">1.2. 安装VitePress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85%E5%90%91%E5%AF%BC"><span class="toc-text">1.3. 安装向导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%A2%9E%E5%8A%A0gitignore"><span class="toc-text">1.4. 增加gitignore</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">2. 文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8%E8%BF%90%E8%A1%8C"><span class="toc-text">3. 启动运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">4. 站点配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%B8%83%E5%B1%80"><span class="toc-text">5. 布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%83%A8%E7%BD%B2%E5%88%B0github"><span class="toc-text">6. 部署到github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%85%8D%E7%BD%AEbase"><span class="toc-text">6.1. 配置base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E9%85%8D%E7%BD%AE%E9%83%A8%E7%BD%B2%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-text">6.2. 配置部署工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E4%BF%AE%E6%94%B9GitHub%E9%85%8D%E7%BD%AE"><span class="toc-text">6.3. 修改GitHub配置</span></a></li></ol></li></ol>
+    </div>
+
+        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><p>在已有文件夹安装；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 切到安装文件夹</span><br><span class="line">cd java-one</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-npm初始化"><a href="#1-1-npm初始化" class="headerlink" title="1.1. npm初始化"></a>1.1. npm初始化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 初始化</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>初始化配置内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm help init` for definitive documentation on these fields</span><br><span class="line">and exactly what they do.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency in the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (java-one)</span><br><span class="line">version: (1.0.0)                                       </span><br><span class="line">description: One notebook of Java                         </span><br><span class="line">entry point: (index.js)                              </span><br><span class="line">test command:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author: ChatGIS                                    </span><br><span class="line">license: (ISC)                                                      </span><br><span class="line">About to write to E:\GitHubChatGIS\java-one\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;java-one&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;One notebook of Java&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;&#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;ChatGIS&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this OK? (yes) yes</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-安装VitePress"><a href="#1-2-安装VitePress" class="headerlink" title="1.2. 安装VitePress"></a>1.2. 安装VitePress</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm add -D vitepress</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-安装向导"><a href="#1-3-安装向导" class="headerlink" title="1.3. 安装向导"></a>1.3. 安装向导</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx vitepress init</span><br></pre></td></tr></table></figure>
+<p>回答几个简单问题，引导配置初始信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">┌  Welcome to VitePress!</span><br><span class="line">│</span><br><span class="line">◇  Where should VitePress initialize the config?</span><br><span class="line">│  ./docs</span><br><span class="line">│</span><br><span class="line">◇  Site title:</span><br><span class="line">│  Java One</span><br><span class="line">│</span><br><span class="line">◇  Site description:</span><br><span class="line">│  One notebook of Java</span><br><span class="line">│</span><br><span class="line">◇  Theme:</span><br><span class="line">│  Default Theme</span><br><span class="line">│</span><br><span class="line">◇  Use TypeScript for config and theme files?</span><br><span class="line">│  No</span><br><span class="line">│</span><br><span class="line">◇  Add VitePress npm scripts to package.json?</span><br><span class="line">│  Yes</span><br><span class="line">│</span><br><span class="line">└  Done! Now run npm run docs:dev and start writing.</span><br><span class="line"></span><br><span class="line">Tips:</span><br><span class="line">- Make sure to add  docs/.vitepress/dist and  docs/.vitepress/cache to your .gitignore file.</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-增加gitignore"><a href="#1-4-增加gitignore" class="headerlink" title="1.4. 增加gitignore"></a>1.4. 增加gitignore</h3><p>按照上一步的Tips，增加<code>.gitignore</code>，增加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">docs/.vitepress/dist</span><br><span class="line">docs/.vitepress/cache</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-文件结构"><a href="#2-文件结构" class="headerlink" title="2. 文件结构"></a>2. 文件结构</h2><p>参考<a target="_blank" rel="noopener" href="https://vitepress.dev/zh/guide/getting-started">官网内容</a></p>
+<blockquote>
+<p>如果正在构建一个独立的 VitePress 站点，可以在当前目录 (.&#x2F;) 中搭建站点。但是，如果在现有项目中与其他源代码一起安装 VitePress，建议将站点搭建在嵌套目录 (例如 .&#x2F;docs) 中，以便它与项目的其余部分分开。</p>
+</blockquote>
+<p> 由于是在已有项目中安装vitepress，所以按照建议将站点搭建在嵌套目录docs中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├─ docs</span><br><span class="line">│  ├─ .vitepress</span><br><span class="line">│  │  └─ config.js</span><br><span class="line">│  ├─ api-examples.md</span><br><span class="line">│  ├─ markdown-examples.md</span><br><span class="line">│  └─ index.md</span><br><span class="line">└─ package.json</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>docs 目录作为 VitePress 站点的项目根目录</li>
+<li>.vitepress 目录是 VitePress 配置文件、开发服务器缓存、构建输出和可选主题自定义代码的位置</li>
+<li>.vitepress 目录之外的 Markdown 文件被视为源文件。</li>
+</ul>
+<blockquote>
+<p>VitePress 使用 基于文件的路由：每个 .md 文件将在相同的路径被编译成为 .html 文件。例如，index.md 将会被编译成 index.html，可以在生成的 VitePress 站点的根路径 &#x2F; 进行访问。</p>
+</blockquote>
+<h2 id="3-启动运行"><a href="#3-启动运行" class="headerlink" title="3. 启动运行"></a>3. 启动运行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run docs:dev</span><br></pre></td></tr></table></figure>
+
+<p>初始页面：<br><img src="/../images/0013/01.png" alt="01.png"></p>
+<h2 id="4-站点配置"><a href="#4-站点配置" class="headerlink" title="4. 站点配置"></a>4. 站点配置</h2><p>参考<a target="_blank" rel="noopener" href="https://vitepress.dev/zh/reference/site-config">官网</a><br>站点配置都在<code>config.mjs</code>中设置；<br>在默认配置基础上进行微调；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import &#123; defineConfig &#125; from &#x27;vitepress&#x27;</span><br><span class="line"></span><br><span class="line">// https://vitepress.dev/reference/site-config</span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">  title: &quot;Java One&quot;,</span><br><span class="line">  description: &quot;One notebook of Java&quot;,</span><br><span class="line">  themeConfig: &#123;</span><br><span class="line">    // https://vitepress.dev/reference/default-theme-config</span><br><span class="line">    nav: [</span><br><span class="line">      &#123; text: &#x27;主页&#x27;, link: &#x27;/&#x27; &#125;,</span><br><span class="line">      &#123; text: &#x27;Java入门&#x27;, link: &#x27;/java/java0101&#x27; &#125;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    sidebar: [</span><br><span class="line">      &#123;</span><br><span class="line">        text: &#x27;Java入门教程&#x27;,</span><br><span class="line">        items: [</span><br><span class="line">          &#123; text: &#x27;你好, Java&#x27;, link: &#x27;/java/java0101&#x27; &#125;,</span><br><span class="line">          &#123; text: &#x27;Java基本语法&#x27;, link: &#x27;/java/java0201&#x27; &#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    socialLinks: [</span><br><span class="line">      &#123; icon: &#x27;github&#x27;, link: &#x27;https://github.com/ChatGIS/java-one&#x27; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-布局"><a href="#5-布局" class="headerlink" title="5. 布局"></a>5. 布局</h2><p>有 3 种布局选项 doc、page 和 home。默认是home，也就是主页的样式，如步骤3截图。<br>其实，我这个项目不需要主页，直接展示具体文章内容即可，所以将布局调整为doc，调整位置在<code>index.md</code>中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout: doc</span><br></pre></td></tr></table></figure>
+<p>由于，hero、features是home布局的属性，所以当前doc布局就不需要这些属性了。</p>
+<p>如果只设置上面代码，进入站点的默认主页是空白的，看上去体验不好，所以可以增加一段文字描述。<br>使用markdown语法，在下面继续编写即可，只要不在两个分隔符 <code>---</code>内部即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: doc</span><br><span class="line">---</span><br><span class="line">## Java One</span><br><span class="line">Java One (Java集、Java一本书)，用于个人整理Java相关的学习内容，包括文章以及源码。</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-部署到github"><a href="#6-部署到github" class="headerlink" title="6. 部署到github"></a>6. 部署到github</h2><p>参考<a target="_blank" rel="noopener" href="https://vitepress.dev/zh/guide/deploy">官网</a></p>
+<h3 id="6-1-配置base"><a href="#6-1-配置base" class="headerlink" title="6.1. 配置base"></a>6.1. 配置base</h3><blockquote>
+<p>设定 public 根目录<br>默认情况下，我们假设站点将部署在域名 (&#x2F;) 的根路径上。如果站点在子路径中提供服务，例如 <a target="_blank" rel="noopener" href="https://mywebsite.com/blog/%EF%BC%8C%E5%88%99%E9%9C%80%E8%A6%81%E5%9C%A8">https://mywebsite.com/blog/，则需要在</a> VitePress 配置中将 base 选项设置为 ‘&#x2F;blog&#x2F;‘。<br>例：如果你使用的是 Github（或 GitLab）页面并部署到 user.github.io&#x2F;repo&#x2F;，请将 base 设置为 &#x2F;repo&#x2F;。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base: &#x27;/java-one/&#x27;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-配置部署工作流"><a href="#6-2-配置部署工作流" class="headerlink" title="6.2. 配置部署工作流"></a>6.2. 配置部署工作流</h3><p>在项目根目录创建<code> .github/workflows</code> 目录，在新建目录中创建一个名为 deploy.yml 的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"># 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程</span><br><span class="line">#</span><br><span class="line">name: Publish Action</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  # 在针对 `main` 分支的推送上运行。如果你</span><br><span class="line">  # 使用 `master` 分支作为默认分支，请将其更改为 `master`</span><br><span class="line">#   push:</span><br><span class="line">#     branches: [main]</span><br><span class="line"></span><br><span class="line">  # 允许你从 Actions 选项卡手动运行此工作流程</span><br><span class="line">  workflow_dispatch:</span><br><span class="line"></span><br><span class="line"># 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages</span><br><span class="line">permissions:</span><br><span class="line">  contents: read</span><br><span class="line">  pages: write</span><br><span class="line">  id-token: write</span><br><span class="line"></span><br><span class="line"># 只允许同时进行一次部署，跳过正在运行和最新队列之间的运行队列</span><br><span class="line"># 但是，不要取消正在进行的运行，因为我们希望允许这些生产部署完成</span><br><span class="line">concurrency:</span><br><span class="line">  group: pages</span><br><span class="line">  cancel-in-progress: false</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  # 构建工作</span><br><span class="line">  build:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout</span><br><span class="line">        uses: actions/checkout@v4</span><br><span class="line">        with:</span><br><span class="line">          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要</span><br><span class="line">      # - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消此区域注释</span><br><span class="line">      #   with:</span><br><span class="line">      #     version: 9</span><br><span class="line">      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释</span><br><span class="line">      - name: Setup Node</span><br><span class="line">        uses: actions/setup-node@v4</span><br><span class="line">        with:</span><br><span class="line">          node-version: 20</span><br><span class="line">          cache: npm # 或 pnpm / yarn</span><br><span class="line">      - name: Setup Pages</span><br><span class="line">        uses: actions/configure-pages@v4</span><br><span class="line">      - name: Install dependencies</span><br><span class="line">        run: npm ci # 或 pnpm install / yarn install / bun install</span><br><span class="line">      - name: Build with VitePress</span><br><span class="line">        run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build</span><br><span class="line">      - name: Upload artifact</span><br><span class="line">        uses: actions/upload-pages-artifact@v3</span><br><span class="line">        with:</span><br><span class="line">          path: docs/.vitepress/dist</span><br><span class="line"></span><br><span class="line">  # 部署工作</span><br><span class="line">  deploy:</span><br><span class="line">    environment:</span><br><span class="line">      name: github-pages</span><br><span class="line">      url: $&#123;&#123; steps.deployment.outputs.page_url &#125;&#125;</span><br><span class="line">    needs: build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    name: Deploy</span><br><span class="line">    steps:</span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        id: deployment</span><br><span class="line">        uses: actions/deploy-pages@v4</span><br></pre></td></tr></table></figure>
+
+<p>个人不喜欢每次提交自动部署，尽管很方便。所以在该文件中设置为手动部署，提交该文件后，在github的action页面手动启动部署即可访问，<code>https://chatgis.space/java-one/</code></p>
+<h3 id="6-3-修改GitHub配置"><a href="#6-3-修改GitHub配置" class="headerlink" title="6.3. 修改GitHub配置"></a>6.3. 修改GitHub配置</h3><p>点选仓库Settings –&gt; pages –&gt; Build and deployment ，修改source选项，默认是 Deploy from a branch ，修改为Github Actions。否则在action自动执行<code>pages build and deployment </code></p>
+<p>修改完成后，回到Actions界面，删除之前的 pages-build-deployment workflows即可，后面就不会再出现了。这是因为github默认对应的静态应用程序是 jekyll。<br>参考<a target="_blank" rel="noopener" href="https://blog.361way.com/2023/10/pages-build-deployment.html">文章</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chatgis.space/post/0013/index.html" data-id="cm5zhifl90008ewv75wv9cfzy" data-title="使用VitePress搭建学习文档" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-0010" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/post/0010/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-01-01T14:49:37.000Z" itemprop="datePublished">2025-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GIS/">GIS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/post/0010/index.html">【强烈推荐】高德在线瓦片地图最全整理V1.0，方便查阅、快速定位问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+    <div id="toc">
+        <strong class="sidebar-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-text">1、参数说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B"><span class="toc-text">2、具体示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81webrd%E7%B3%BB%E5%88%97"><span class="toc-text">2.1、webrd系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81wprd%E3%80%81webst%E7%B3%BB%E5%88%97"><span class="toc-text">2.2、wprd、webst系列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%95%88%E6%9E%9C%E5%91%88%E7%8E%B0"><span class="toc-text">3、效果呈现</span></a></li></ol>
+    </div>
+
+        <p>身为 GIS 从业者，在众多项目场景里，在线地图的运用必不可少。而高德在线瓦片地图在众多地图厂商中脱颖而出，独占鳌头。其完美践行了互联网精神中的共享与开放理念，以无门槛的优势，极大地方便了从业者的使用，为行业发展提供了有力支持。<br>但是，高德官网未提供相关讲解文档，为方便广大网友快速查询高德在线瓦片地图信息，笔者通过广泛收集互联网资料，精心整理出此份资料。该文档将持续更新迭代，以确保其时效性和准确性。若您有这方面的需求，不妨<a href="https://chatgis.space/">收藏并关注</a>，以便随时获取最新内容。  </p>
+<h2 id="1、参数说明"><a href="#1、参数说明" class="headerlink" title="1、参数说明"></a>1、参数说明</h2><p>示例：<br><code>http://wprd01.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=8</code></p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>可选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://chatgis.space/">域名</a></td>
+<td>webrd、wprd、webst</td>
+<td>wprd和webst效果一致，webrd有普通字体大小和老版本瓦片，可查看具体示例</td>
+</tr>
+<tr>
+<td>子域名</td>
+<td>01、02、03、04</td>
+<td>建议使用<code>0&#123;1-4&#125;</code>格式</td>
+</tr>
+<tr>
+<td>语言：lang</td>
+<td>zh_cn、en</td>
+<td>中文、英文</td>
+</tr>
+<tr>
+<td>尺寸:scl</td>
+<td>1、2</td>
+<td>瓦片尺寸，1: 256×256；2：512×512，默认是1，当scl&#x3D;2时不显示注记</td>
+</tr>
+<tr>
+<td>style</td>
+<td>6、7、8、9、10</td>
+<td>不同域名规律不一致，以webrd为例，6是卫星影像，其他见具体示例</td>
+</tr>
+<tr>
+<td>ltype</td>
+<td>1、2、3、4、5、6、7、8</td>
+<td>见具体示例</td>
+</tr>
+<tr>
+<td><a href="https://chatgis.space/">size</a></td>
+<td>不生效</td>
+<td>暂未找到规律</td>
+</tr>
+</tbody></table>
+<h2 id="2、具体示例"><a href="#2、具体示例" class="headerlink" title="2、具体示例"></a>2、具体示例</h2><p>按照域名分类；</p>
+<h3 id="2-1、webrd系列"><a href="#2-1、webrd系列" class="headerlink" title="2.1、webrd系列"></a>2.1、webrd系列</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 01标准版</span><br><span class="line">http://webrd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;scale=1&amp;style=8&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">// 02老版本（新地物缺失、地图泛红）</span><br><span class="line">http://webrd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;scale=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-2、wprd、webst系列"><a href="#2-2、wprd、webst系列" class="headerlink" title="2.2、wprd、webst系列"></a>2.2、wprd、webst系列</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 03影像</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=6&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">// 04大字版(注记抽稀)</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=10&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">// 05路网加注记</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=8&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">// 06大字版(注记未抽稀、无图标)</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=9&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;</span><br><span class="line">// 07只显示地块（style可以是7、8、9、10）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=1</span><br><span class="line">// 08只显示路网</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=2</span><br><span class="line">// 09地块+路网（无注记）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=3</span><br><span class="line">// 10只显示注记（大字抽稀版本）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=4</span><br><span class="line">// 11地块+注记（大字抽稀版本）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=5</span><br><span class="line">// 12路网+注记（大字抽稀版本）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=6</span><br><span class="line">// 13地块+路网+注记（大字抽稀版本）</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=7</span><br><span class="line">// 14纯色底图</span><br><span class="line">http://wprd0&#123;1-4&#125;.is.autonavi.com/appmaptile?lang=zh_cn&amp;size=1&amp;style=7&amp;x=&#123;x&#125;&amp;y=&#123;y&#125;&amp;z=&#123;z&#125;&amp;ltype=8</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、效果呈现"><a href="#3、效果呈现" class="headerlink" title="3、效果呈现"></a>3、效果呈现</h2><p>常用效果对比展示</p>
+<ul>
+<li><p>标准版&amp;大字版<br><a href="https://chatgis.space/"><img src="/../images/0010/01.png" alt="001.png"></a></p>
+</li>
+<li><p>影像图叠加版本<br><img src="/../images/0010/02.png" alt="002.png"></p>
+</li>
+<li><p>有无注记版本对比<br><img src="/../images/0010/03.png" alt="003.png"></p>
+</li>
+<li><p>中英文版本<br><img src="/../images/0010/04.png" alt="004.png"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chatgis.space/post/0010/index.html" data-id="cm5zhifkz0001ewv7dhyl22zk" data-title="【强烈推荐】高德在线瓦片地图最全整理V1.0，方便查阅、快速定位问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%93%A6%E7%89%87/" rel="tag">瓦片</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AB%98%E5%BE%B7/" rel="tag">高德</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-0011" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/post/0011/index.html" class="article-date">
+  <time class="dt-published" datetime="2024-12-29T20:46:47.000Z" itemprop="datePublished">2024-12-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/post/0011/index.html">GitHub Page + Hexo + 域名搭建个人博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+    <div id="toc">
+        <strong class="sidebar-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9C%80%E4%BD%B3%E6%8B%8D%E6%A1%A3"><span class="toc-text">1. 最佳拍档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BAgithub-io%E5%BA%93"><span class="toc-text">2. 创建github.io库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2Hexo"><span class="toc-text">3.本地部署Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%83%A8%E7%BD%B2"><span class="toc-text">4. 部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="toc-text">5. 绑定域名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">域名解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"><span class="toc-text">域名绑定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Hexo%E8%AE%BE%E7%BD%AE%E5%8D%9A%E5%AE%A2%E8%B7%AF%E5%BE%84"><span class="toc-text">6. Hexo设置博客路径</span></a></li></ol>
+    </div>
+
+        <h2 id="1-最佳拍档"><a href="#1-最佳拍档" class="headerlink" title="1. 最佳拍档"></a>1. 最佳拍档</h2><ul>
+<li>GitHub Page<br>是一项静态站点托管服务，它直接从 GitHub 上获取 HTML、CSS 和 JavaScript 文件，通过构建过程运行文件，然后发布网站，不需要购买服务器就可以实现个人博客网站，而且无需备案。</li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a><br>是一个快速、简洁且高效的博客框架。 Hexo 使用 Markdown（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页，如果擅长使用node，这个框架非常简单。</li>
+<li>域名<br>比<code>github.io</code>看上去更正式，另外，非<code>com、cn</code>这种顶级的域名都比较便宜。</li>
+</ul>
+<p>综上，GitHub Page + Hexo + 域名是金钱时间都非常低成本的搭配，对大多数人足够啦。毕竟，大多数人只是一时冲动，后续能够持续更新内容的博客网站很少很少。</p>
+<h2 id="2-创建github-io库"><a href="#2-创建github-io库" class="headerlink" title="2. 创建github.io库"></a>2. 创建github.io库</h2><p>创建github帐号、创建<code>[username].github.io</code>的库，非常简单。</p>
+<h2 id="3-本地部署Hexo"><a href="#3-本地部署Hexo" class="headerlink" title="3.本地部署Hexo"></a>3.本地部署Hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="4-部署"><a href="#4-部署" class="headerlink" title="4. 部署"></a>4. 部署</h2><p>参考：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages#%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2">https://hexo.io/zh-cn/docs/github-pages#%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2</a><br><code>_config.yml</code>增加配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ChatGIS/chatgis.github.io.git</span><br><span class="line">  branch: deploy</span><br></pre></td></tr></table></figure>
+<p> 注意：repo配置项一定要使用<code>git</code>开头的ssh方式，不要使用<code>https</code>，否则，在部署时经常会报错。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="5-绑定域名"><a href="#5-绑定域名" class="headerlink" title="5. 绑定域名"></a>5. 绑定域名</h2><p>先买域名</p>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p><img src="/../images/0011/01.png" alt="01.png"></p>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p><img src="/../images/0011/02.png" alt="02.png"><br>该过程会自动在部署的分支下面创建一个CNAME的文件，文件内容是您的域名。<br><img src="/../images/0011/03.png" alt="03.png"></p>
+<p>上面这种方式在更新网站时会造成CNAME文件的丢失，所以需要在<code>/source</code>增加该文件，这样部署时会带上该文件。</p>
+<h2 id="6-Hexo设置博客路径"><a href="#6-Hexo设置博客路径" class="headerlink" title="6. Hexo设置博客路径"></a>6. Hexo设置博客路径</h2><p>在<code>_config.yml</code>中修改配置，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: post/:title/index.html</span><br></pre></td></tr></table></figure>
+<p>请求路径就变成了不带有时间的啦，并且都在<code>post</code>目录下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chatgis.space/post/0011/index.html" data-id="cm5zhifl40003ewv785fs90lf" data-title="GitHub Page + Hexo + 域名搭建个人博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-0012" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/post/0012/index.html" class="article-date">
+  <time class="dt-published" datetime="2024-12-29T15:42:18.000Z" itemprop="datePublished">2024-12-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/post/0012/index.html">Hexo-基于LandScape创建自己的博客主题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+    <div id="toc">
+        <strong class="sidebar-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98LandScape"><span class="toc-text">1. 下载主题LandScape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%A1%E7%90%86%E4%B8%BB%E9%A2%98%E6%BA%90%E7%A0%81"><span class="toc-text">2. 管理主题源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%B0%83%E7%94%A8%E4%B8%BB%E9%A2%98space"><span class="toc-text">3. 调用主题space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9Banner"><span class="toc-text">4. 修改Banner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-text">5. 增加文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%96%B0%E5%BB%BAtoc-ejs%E6%96%87%E4%BB%B6"><span class="toc-text">5.1. 新建toc.ejs文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%9C%A8post-ejs%E4%B8%AD%E8%B0%83%E7%94%A8"><span class="toc-text">5.2. 在post.ejs中调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F"><span class="toc-text">5.3. 修改样式</span></a></li></ol></li></ol>
+    </div>
+
+        <h2 id="1-下载主题LandScape"><a href="#1-下载主题LandScape" class="headerlink" title="1. 下载主题LandScape"></a>1. 下载主题LandScape</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:hexojs/hexo-theme-landscape.git themes/landscape</span><br></pre></td></tr></table></figure>
+<h2 id="2-管理主题源码"><a href="#2-管理主题源码" class="headerlink" title="2. 管理主题源码"></a>2. 管理主题源码</h2><p>删除下载主题文件夹中的<code>.git</code>文件夹，并将主题文件夹重命名为<code>space</code>。<br>这样就可以基于在自己的git管理新主题啦。</p>
+<h2 id="3-调用主题space"><a href="#3-调用主题space" class="headerlink" title="3. 调用主题space"></a>3. 调用主题space</h2><p>在文件<code>_config.yml</code>中找到增加配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: space</span><br></pre></td></tr></table></figure>
+<h2 id="4-修改Banner"><a href="#4-修改Banner" class="headerlink" title="4. 修改Banner"></a>4. 修改Banner</h2><p>直接找到主题中的<code>themes/space/source/css/images/banner.jpg</code>文件，替换为自己的图片即可，命名保持不变。</p>
+<h2 id="5-增加文章目录"><a href="#5-增加文章目录" class="headerlink" title="5. 增加文章目录"></a>5. 增加文章目录</h2><h3 id="5-1-新建toc-ejs文件"><a href="#5-1-新建toc-ejs文件" class="headerlink" title="5.1. 新建toc.ejs文件"></a>5.1. 新建toc.ejs文件</h3><p>在 space&#x2F;layout&#x2F;_partial 文件夹下，新建一个 toc.ejs 文件, 内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.toc != false) &#123; %&gt;</span><br><span class="line">    &lt;div id=&quot;toc&quot;&gt;</span><br><span class="line">        &lt;strong class=&quot;sidebar-title&quot;&gt;目录&lt;/strong&gt;</span><br><span class="line">        &lt;%- toc(post.content, &#123;list_number : false&#125;) %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-在post-ejs中调用"><a href="#5-2-在post-ejs中调用" class="headerlink" title="5.2. 在post.ejs中调用"></a>5.2. 在post.ejs中调用</h3><p>打开article.ejs文件, 找到以下代码<code>&lt;%- post.content %&gt;</code>，在上面增加toc代码，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(&#x27;toc&#x27;) %&gt;</span><br><span class="line">&lt;%- post.content %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-修改样式"><a href="#5-3-修改样式" class="headerlink" title="5.3. 修改样式"></a>5.3. 修改样式</h3><p>打开<code>themes/space/source/css/_partial/article.styl</code>文件，增加以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#toc</span><br><span class="line">  background-color #eee</span><br><span class="line">  font-size 0.8em</span><br><span class="line">  color color-link</span><br><span class="line">  margin-top 3em</span><br><span class="line">  padding 1em</span><br><span class="line">  .toc</span><br><span class="line">    margin-top 0</span><br><span class="line">    margin-bottom 0</span><br><span class="line">  .toc-item</span><br><span class="line">    list-style none</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chatgis.space/post/0012/index.html" data-id="cm5zhifl80007ewv76zvh6st1" data-title="Hexo-基于LandScape创建自己的博客主题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%93%A6%E7%89%87/" rel="tag">瓦片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%BE%B7/" rel="tag">高德</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/SSG/" style="font-size: 20px;">SSG</a> <a href="/tags/%E7%93%A6%E7%89%87/" style="font-size: 10px;">瓦片</a> <a href="/tags/%E9%AB%98%E5%BE%B7/" style="font-size: 10px;">高德</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post/0013/index.html">使用VitePress搭建学习文档</a>
+          </li>
+        
+          <li>
+            <a href="/post/0010/index.html">【强烈推荐】高德在线瓦片地图最全整理V1.0，方便查阅、快速定位问题</a>
+          </li>
+        
+          <li>
+            <a href="/post/0011/index.html">GitHub Page + Hexo + 域名搭建个人博客</a>
+          </li>
+        
+          <li>
+            <a href="/post/0012/index.html">Hexo-基于LandScape创建自己的博客主题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 ChatGIS<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/gisshow" class="mobile-nav-link">GisShow</a>
+  
+    <a href="/huanyu" class="mobile-nav-link">HuanYu</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
