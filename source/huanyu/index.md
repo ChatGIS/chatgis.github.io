@@ -27,9 +27,15 @@ const huanyuFuncTest = () => {
 ```
 
 ## 二、功能列表 API List
-### 1、Hello HuanYu
+### 1. Hello HuanYu
 - hello: 输出Hello HuanYu!
-## 2、数据类型工具 Data Type Tools
+### 2. 坐标转换
+- convertWGS84ToGCJ02: WGS84转GCJ02
+- convertGCJ02ToWGS84: GCJ02转WGS84
+- convertGCJ02ToBD09: GCJ02转BD09
+- convertBD09ToGCJ02: BD09转GCJ02
+- convertWGS84ToBD09: WGS84转BD09
+- convertBD09ToWGS84: BD09转WGS84
+### 3. 数据类型工具
 - wkt2CoorArray: wkt转坐标数组,支持点、线、面(暂不支持多点多线多面)
 - wkt2CoorArrayStr: wkt转坐标数组字符串,支持点、线、面(暂不支持多点多线多面)
-
