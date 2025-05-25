@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-40P594EVM8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-40P594EVM8');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Linux 服务器离线搭建 Nginx：详细图文教程与避坑指南 | ChatGIS Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文详细讲解Linux离线环境下Nginx安装，涵盖安装包获取、依赖处理、编译配置及启动全流程，助力轻松完成部署。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 服务器离线搭建 Nginx：详细图文教程与避坑指南">
+<meta property="og:url" content="https://chatgis.space/post/0019/index.html">
+<meta property="og:site_name" content="ChatGIS Space">
+<meta property="og:description" content="本文详细讲解Linux离线环境下Nginx安装，涵盖安装包获取、依赖处理、编译配置及启动全流程，助力轻松完成部署。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chatgis.space/images/0019/01.png">
+<meta property="article:published_time" content="2025-04-26T15:42:13.000Z">
+<meta property="article:modified_time" content="2025-05-08T01:59:30.307Z">
+<meta property="article:author" content="ChatGIS">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chatgis.space/images/0019/01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ChatGIS Space" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ChatGIS Space</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The blog, static website and contact information of ChatGIS.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/gisshow">GisShow</a>
+        
+          <a class="main-nav-link" href="/huanyu">HuanYu</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/ChatGIS"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chatgis.space"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-0019" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/post/0019/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-04-26T15:42:13.000Z" itemprop="datePublished">2025-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Linux 服务器离线搭建 Nginx：详细图文教程与避坑指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+    <div id="toc">
+        <strong class="sidebar-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8B"><span class="toc-text">1. 下载解压</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%8B%E8%BD%BD"><span class="toc-text">1.1. 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%A7%A3%E5%8E%8B"><span class="toc-text">1.2. 解压</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">2. 配置编译环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-text">2.1. 命令执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BF%AE%E6%94%B9%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="toc-text">2.2. 修改安装目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%A0%B8%E5%BF%83%E5%BA%93PCRE%E5%92%8Czlib"><span class="toc-text">2.3. 核心库PCRE和zlib</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-text">3. 编译安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-make"><span class="toc-text">3.1. make</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-make-install"><span class="toc-text">3.2. make install</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95"><span class="toc-text">4. 启动测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%90%AF%E5%8A%A8"><span class="toc-text">4.1. 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%B5%8B%E8%AF%95"><span class="toc-text">4.2. 测试</span></a></li></ol></li></ol>
+    </div>
+
+        <p>本文详细讲解Linux离线环境下Nginx安装，涵盖安装包获取、依赖处理、编译配置及启动全流程，助力轻松完成部署。 </p>
+<span id="more"></span>
+<h2 id="1-下载解压"><a href="#1-下载解压" class="headerlink" title="1. 下载解压"></a>1. 下载解压</h2><h3 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1. 下载"></a>1.1. 下载</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
+<p>在Stable version模块下载最新的稳定版本，下载文件<code>nginx-1.26.2.tar.gz</code>;<br><img src="/../images/0019/01.png" alt="下载.png"></p>
+<h3 id="1-2-解压"><a href="#1-2-解压" class="headerlink" title="1.2. 解压"></a>1.2. 解压</h3><p>将安装包上传到主机服务器，并解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 解压命令</span><br><span class="line">tar -xvf nginx-1.26.2.tar.gz</span><br><span class="line">````</span><br><span class="line">说明：此处解压的文件夹是安装包文件，不是安装后要使用的文件夹。</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">drwxr-xr-x 6 gis gis   4096 Nov 11 14:12 auto</span><br><span class="line">-rw-r--r-- 1 gis gis 327851 Aug 13 00:39 CHANGES</span><br><span class="line">-rw-r--r-- 1 gis gis 501527 Aug 13 00:39 CHANGES.ru</span><br><span class="line">drwxr-xr-x 2 gis gis   4096 Nov 11 14:12 conf</span><br><span class="line">-rwxr-xr-x 1 gis gis   2611 Aug 12 22:28 configure</span><br><span class="line">drwxr-xr-x 4 gis gis   4096 Nov 11 14:12 contrib</span><br><span class="line">drwxr-xr-x 2 gis gis   4096 Nov 11 17:11 html</span><br><span class="line">-rw-r--r-- 1 gis gis   1397 Aug 12 22:28 LICENSE</span><br><span class="line">-rw-rw-r-- 1 gis gis    414 Nov 11 14:29 Makefile</span><br><span class="line">drwxr-xr-x 2 gis gis   4096 Nov 11 14:12 man</span><br><span class="line">drwxrwxr-x 3 gis gis   4096 Nov 11 16:30 objs</span><br><span class="line">-rw-r--r-- 1 gis gis     49 Aug 12 22:28 README</span><br><span class="line">drwxr-xr-x 9 gis gis   4096 Aug 13 00:39 src</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>auto目录：用于编译时的文件，以及相关lib库，编译时对对操作系统的判断等，都是为了辅助.&#x2F;configure命令执行的辅助文件；</li>
+<li>CHANGES文件：就是当前版本的说明信息，比如新增的功能，修复的bug，变更的功能等；</li>
+<li>CHANGES.ru文件：作者是俄罗斯人，生成了一份俄罗斯语言的CHANGE文件；</li>
+<li>conf目录：是nginx编译安装后的默认配置文件或者示列文件，安装时会拷贝到安装的文件夹里面；</li>
+<li>configure文件：编译安装前的预备执行文件；</li>
+<li>contrib目录：该目录是为了方便vim编码nginx的配置文件时候，颜色突出显示，可以将该目录拷贝到自己的~&#x2F;.vim目录下面</li>
+<li>html目录：编译安装的默认的2个标准web页面，安装后会自动拷贝到nginx的安装目录下的html下；</li>
+<li>Makefile文件：nginx所需的所有指令和依赖关系；</li>
+<li>man目录：nginx命令的帮助文档，linux上可以使用man命令查看帮助；</li>
+<li>src：nginx的源码文件；</li>
+</ul>
+<h2 id="2-配置编译环境"><a href="#2-配置编译环境" class="headerlink" title="2. 配置编译环境"></a>2. 配置编译环境</h2><p>在安装包文件夹执行<code>configure</code>命令，使用该命令可以用来配置nginx编译环境。</p>
+<h3 id="2-1-命令执行"><a href="#2-1-命令执行" class="headerlink" title="2.1. 命令执行"></a>2.1. 命令执行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该命令检查系统相关功能是否具备并生成<code>objs/Makefile</code>文件;</li>
+<li>显示使用<code>system PCRE library</code>和<code>system zlib library</code>;</li>
+<li>显示后续安装的配置信息，比如安装目录<code>nginx path prefix</code>，默认为<code>/usr/local/nginx</code>;</li>
+</ul>
+<p>命令执行日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">checking for OS</span><br><span class="line"> + Linux 4.19.12-1.el7.elrepo.x86_64 x86_64</span><br><span class="line">checking for C compiler ... found</span><br><span class="line"> + using GNU C compiler</span><br><span class="line"> + gcc version: 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC) </span><br><span class="line">checking for gcc -pipe switch ... found</span><br><span class="line">checking for -Wl,-E switch ... found</span><br><span class="line">checking for gcc builtin atomic operations ... found</span><br><span class="line">checking for C99 variadic macros ... found</span><br><span class="line">checking for gcc variadic macros ... found</span><br><span class="line">checking for gcc builtin 64 bit byteswap ... found</span><br><span class="line">checking for unistd.h ... found</span><br><span class="line">... ...</span><br><span class="line">... ...</span><br><span class="line">checking for getaddrinfo() ... found</span><br><span class="line">checking for PCRE2 library ... not found</span><br><span class="line">checking for PCRE library ... found</span><br><span class="line">checking for PCRE JIT support ... found</span><br><span class="line">checking for zlib library ... found</span><br><span class="line">creating objs/Makefile</span><br><span class="line"></span><br><span class="line">Configuration summary</span><br><span class="line">  + using system PCRE library</span><br><span class="line">  + OpenSSL library is not used</span><br><span class="line">  + using system zlib library</span><br><span class="line"></span><br><span class="line">  nginx path prefix: &quot;/usr/local/nginx&quot;</span><br><span class="line">  nginx binary file: &quot;/usr/local/nginx/sbin/nginx&quot;</span><br><span class="line">  nginx modules path: &quot;/usr/local/nginx/modules&quot;</span><br><span class="line">  nginx configuration prefix: &quot;/usr/local/nginx/conf&quot;</span><br><span class="line">  nginx configuration file: &quot;/usr/local/nginx/conf/nginx.conf&quot;</span><br><span class="line">  nginx pid file: &quot;/usr/local/nginx/logs/nginx.pid&quot;</span><br><span class="line">  nginx error log file: &quot;/usr/local/nginx/logs/error.log&quot;</span><br><span class="line">  nginx http access log file: &quot;/usr/local/nginx/logs/access.log&quot;</span><br><span class="line">  nginx http client request body temporary files: &quot;client_body_temp&quot;</span><br><span class="line">  nginx http proxy temporary files: &quot;proxy_temp&quot;</span><br><span class="line">  nginx http fastcgi temporary files: &quot;fastcgi_temp&quot;</span><br><span class="line">  nginx http uwsgi temporary files: &quot;uwsgi_temp&quot;</span><br><span class="line">  nginx http scgi temporary files: &quot;scgi_temp&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-修改安装目录"><a href="#2-2-修改安装目录" class="headerlink" title="2.2. 修改安装目录"></a>2.2. 修改安装目录</h3><p>查看帮助，可以查看到可配置项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --help</span><br></pre></td></tr></table></figure>
+<p>例如：修改安装目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=&#x27;/gis/nginx&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-核心库PCRE和zlib"><a href="#2-3-核心库PCRE和zlib" class="headerlink" title="2.3. 核心库PCRE和zlib"></a>2.3. 核心库PCRE和zlib</h3><p>根据配置检查结果可知，PCRE和zlib是Nginx两个核心库。</p>
+<p> PCRE(Perl Compatible Regular Expressions   perl语言兼容正则表达式)是一个用C语言编写的正则表达式函数库。在Nginx的配置文件nginx.conf中，经常会使用正则表达式来定义URL匹配规则、重写规则等，PCRE库就是Nginx用来解析正则表达式的工具。</p>
+<p>zlib 是提供数据压缩用的函式库，Nginx的某些模块需要用到数据压缩和解压缩功能。</p>
+<p> 如果系统不具备这些库，还需要自行安装。</p>
+<h2 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3. 编译安装"></a>3. 编译安装</h2><h3 id="3-1-make"><a href="#3-1-make" class="headerlink" title="3.1. make"></a>3.1. make</h3><p><strong>作用：</strong> <code>make</code> 命令是用来编译源代码的。<br>在 nginx 的上下文中，当你下载了 nginx 的源代码包并解压后，会看到一个 Makefile 文件，这个 Makefile 文件包含了编译 nginx 所需的所有指令和依赖关系，运行 make 命令会读取这个 Makefile，然后根据系统环境和配置选项（通过之前的 <code>./configure</code> 命令设置）来编译 nginx 的源代码。<br><strong>过程：</strong> <code>make</code> 命令会调用编译器（如 gcc）来编译 nginx 的 C 源代码文件，生成目标文件（通常是 .o 文件），并最终链接这些目标文件生成可执行文件（如 nginx 二进制文件）。<br><strong>执行：</strong> 执行命令<code>make</code>，没有报错就代表执行成功；<br>执行日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">make -f objs/Makefile</span><br><span class="line">make[1]: Entering directory `/gis/nginx1.26.2/nginx-1.26.2-source&#x27;</span><br><span class="line">cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/event/quic -I src/os/unix -I objs \</span><br><span class="line">        -o objs/src/core/nginx.o \</span><br><span class="line">        src/core/nginx.c</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">src/http/modules \</span><br><span class="line">        -o objs/src/http/modules/ngx_http_upstream_zone_module.o \</span><br><span class="line">        src/http/modules/ngx_http_upstream_zone_module.c</span><br><span class="line">cc -c -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I src/core -I src/event -I src/event/modules -I src/event/quic -I src/os/unix -I objs \</span><br><span class="line">        -o objs/ngx_modules.o \</span><br><span class="line">        objs/ngx_modules.c</span><br><span class="line">cc -o objs/nginx \</span><br><span class="line">objs/src/core/nginx.o \</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">objs/ngx_modules.o \</span><br><span class="line">-ldl -lpthread -lcrypt -lpcre -lz \</span><br><span class="line">-Wl,-E</span><br><span class="line">sed -e &quot;s|%%PREFIX%%|/gis/nginx|&quot; \</span><br><span class="line">        -e &quot;s|%%PID_PATH%%|/gis/nginx/logs/nginx.pid|&quot; \</span><br><span class="line">        -e &quot;s|%%CONF_PATH%%|/gis/nginx/conf/nginx.conf|&quot; \</span><br><span class="line">        -e &quot;s|%%ERROR_LOG_PATH%%|/gis/nginx/logs/error.log|&quot; \</span><br><span class="line">        &lt; man/nginx.8 &gt; objs/nginx.8</span><br><span class="line">make[1]: Leaving directory `/gis/nginx1.26.2/nginx-1.26.2-source&#x27;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-2-make-install"><a href="#3-2-make-install" class="headerlink" title="3.2. make install"></a>3.2. make install</h3><p><strong>作用：</strong> <code>make install</code> 命令是用来安装编译好的 nginx 可执行文件及其相关文件（如配置文件、日志文件目录等）到指定的目录中，这个命令也是根据 Makefile 中的指令来执行的，但它关注的是安装步骤，而不是编译步骤。<br><strong>过程：</strong> <code>make install</code> 会将 nginx 二进制文件、配置文件模板、HTML 文档目录等复制到你在 <code>./configure</code> 步骤中指定的目录（如 &#x2F;usr&#x2F;local&#x2F;nginx）。这个步骤还包括设置必要的权限和创建日志文件目录等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">make -f objs/Makefile install</span><br><span class="line">make[1]: Entering directory `/gis/nginx1.26.2/nginx-1.26.2-source&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx&#x27; || mkdir -p &#x27;/gis/nginx&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/sbin&#x27; \</span><br><span class="line">        || mkdir -p &#x27;/gis/nginx/sbin&#x27;</span><br><span class="line">test ! -f &#x27;/gis/nginx/sbin/nginx&#x27; \</span><br><span class="line">        || mv &#x27;/gis/nginx/sbin/nginx&#x27; \</span><br><span class="line">                &#x27;/gis/nginx/sbin/nginx.old&#x27;</span><br><span class="line">cp objs/nginx &#x27;/gis/nginx/sbin/nginx&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/conf&#x27; \</span><br><span class="line">        || mkdir -p &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/koi-win &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/koi-utf &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/win-utf &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/mime.types&#x27; \</span><br><span class="line">        || cp conf/mime.types &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/mime.types &#x27;/gis/nginx/conf/mime.types.default&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/fastcgi_params&#x27; \</span><br><span class="line">        || cp conf/fastcgi_params &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/fastcgi_params \</span><br><span class="line">        &#x27;/gis/nginx/conf/fastcgi_params.default&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/fastcgi.conf&#x27; \</span><br><span class="line">        || cp conf/fastcgi.conf &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/fastcgi.conf &#x27;/gis/nginx/conf/fastcgi.conf.default&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/uwsgi_params&#x27; \</span><br><span class="line">        || cp conf/uwsgi_params &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/uwsgi_params \</span><br><span class="line">        &#x27;/gis/nginx/conf/uwsgi_params.default&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/scgi_params&#x27; \</span><br><span class="line">        || cp conf/scgi_params &#x27;/gis/nginx/conf&#x27;</span><br><span class="line">cp conf/scgi_params \</span><br><span class="line">        &#x27;/gis/nginx/conf/scgi_params.default&#x27;</span><br><span class="line">test -f &#x27;/gis/nginx/conf/nginx.conf&#x27; \</span><br><span class="line">        || cp conf/nginx.conf &#x27;/gis/nginx/conf/nginx.conf&#x27;</span><br><span class="line">cp conf/nginx.conf &#x27;/gis/nginx/conf/nginx.conf.default&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/logs&#x27; \</span><br><span class="line">        || mkdir -p &#x27;/gis/nginx/logs&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/logs&#x27; \</span><br><span class="line">        || mkdir -p &#x27;/gis/nginx/logs&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/html&#x27; \</span><br><span class="line">        || cp -R html &#x27;/gis/nginx&#x27;</span><br><span class="line">test -d &#x27;/gis/nginx/logs&#x27; \</span><br><span class="line">        || mkdir -p &#x27;/gis/nginx/logs&#x27;</span><br><span class="line">make[1]: Leaving directory `/gis/nginx1.26.2/nginx-1.26.2-source&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-启动测试"><a href="#4-启动测试" class="headerlink" title="4. 启动测试"></a>4. 启动测试</h2><h3 id="4-1-启动"><a href="#4-1-启动" class="headerlink" title="4.1. 启动"></a>4.1. 启动</h3><p>修改端口，一般不会使用默认的80端口，需要自行修改；<br>在安装目录下conf中nginx.conf中直接修改端口；</p>
+<p>运行安装目录sbin下面的nginx即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+<p>查看版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -v</span><br></pre></td></tr></table></figure>
+<p>nginx version: nginx&#x2F;1.26.2</p>
+<h3 id="4-2-测试"><a href="#4-2-测试" class="headerlink" title="4.2. 测试"></a>4.2. 测试</h3><p>输入主机ip和端口好，出现<code>Welcom to nginx!</code>页面，则表示成功安装并启动。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chatgis.space/post/0019/index.html" data-id="cmb3bjpvq00117cv73iuvfwp3" data-title="Linux 服务器离线搭建 Nginx：详细图文教程与避坑指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post/0020/index.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux环境通过Tomcat部署GeoServer过程详细记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/0018/index.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux离线安装Redis，执行过程详细记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GeoServer/" rel="tag">GeoServer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenSource/" rel="tag">OpenSource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/low-code/" rel="tag">low-code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" rel="tag">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E/" rel="tag">低空经济</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%93%A6%E7%89%87/" rel="tag">瓦片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E5%BE%B7/" rel="tag">高德</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GeoServer/" style="font-size: 10px;">GeoServer</a> <a href="/tags/GitHub/" style="font-size: 15px;">GitHub</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/OpenSource/" style="font-size: 10px;">OpenSource</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSG/" style="font-size: 20px;">SSG</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/low-code/" style="font-size: 10px;">low-code</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 10px;">代码规范</a> <a href="/tags/%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">低空经济</a> <a href="/tags/%E7%93%A6%E7%89%87/" style="font-size: 10px;">瓦片</a> <a href="/tags/%E9%AB%98%E5%BE%B7/" style="font-size: 10px;">高德</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/">2025</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post/0020/index.html">Linux环境通过Tomcat部署GeoServer过程详细记录</a>
+          </li>
+        
+          <li>
+            <a href="/post/0019/index.html">Linux 服务器离线搭建 Nginx：详细图文教程与避坑指南</a>
+          </li>
+        
+          <li>
+            <a href="/post/0018/index.html">Linux离线安装Redis，执行过程详细记录</a>
+          </li>
+        
+          <li>
+            <a href="/post/0017/index.html">低空经济浪潮中，GIS 扮演何种角色？</a>
+          </li>
+        
+          <li>
+            <a href="/post/0016/index.html">低代码的硬伤：为何它注定无法成功？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 ChatGIS<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/gisshow" class="mobile-nav-link">GisShow</a>
+  
+    <a href="/huanyu" class="mobile-nav-link">HuanYu</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
